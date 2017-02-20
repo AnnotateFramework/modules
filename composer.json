@@ -1,0 +1,21 @@
+{
+  "name": "annotate/modules",
+  "type": "library",
+  "description": "Modules support for Annotate Framework",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michal Vyšinský",
+      "email": "michal@vysinsky.cz"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "annotate/framework": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Annotate\\Modules\\": "src/"
+    }
+  }
+}
