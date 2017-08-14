@@ -13,6 +13,10 @@
     "php": ">=5.4",
     "annotate/framework": "@dev"
   },
+  "require-dev": {
+    "annotate/diagnostics": "@dev",
+    "annotate/templating": "@dev"
+  },
   "autoload": {
     "psr-4": {
       "Annotate\\Modules\\": "src/"
