@@ -5,8 +5,8 @@ namespace Annotate\Modules;
 use Annotate\Framework\Application\Components\Container;
 use Annotate\Framework\Utils\Strings;
 use Annotate\Modules\Application\ModularPresenter;
+use Nette\Application\UI\ComponentReflection;
 use Nette\Application\UI\Presenter;
-use Nette\Application\UI\PresenterComponentReflection;
 use Nette\ComponentModel\IComponent;
 use Nette\Object;
 use Nette\Reflection\ClassType;
@@ -150,18 +150,16 @@ abstract class BaseModule extends Object implements IModule
 	/**
 	 * @return Container
 	 */
-	public
-	function getContainer()
+	public function getContainer()
 	{
 		return $this->presenter->getComponent("container");
 	}
 
 
 
-	function tryCall($method, $params)
+	public function tryCall($method, $params)
 	{
-		/** @var PresenterComponentReflection $rc */
-		$rc = PresenterComponentReflection::from($this);
+		$rc = new ComponentReflection($this);
 		if ($rc->hasMethod($method)) {
 			$rm = $rc->getMethod($method);
 			if ($rm->isPublic() && !$rm->isAbstract() && !$rm->isStatic()) {
