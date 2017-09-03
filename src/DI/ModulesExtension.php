@@ -41,9 +41,7 @@ class ModulesExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('routesProvider'))
-			->setClass(ModulesRouteProvider::class, [
-				'secured' => isset($builder->parameters['https']) ? $builder->parameters['https'] : FALSE,
-			]);
+			->setClass(ModulesRouteProvider::class);
 
 		$builder->addDefinition($this->prefix('register'))
 			->setClass(ModulesRegister::class)

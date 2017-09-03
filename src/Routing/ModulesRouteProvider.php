@@ -10,18 +10,6 @@ use Nette\Application\Routers\Route;
 class ModulesRouteProvider implements IRouteProvider
 {
 
-	/** @var bool */
-	private $secured;
-
-
-
-	public function __construct($secured)
-	{
-		$this->secured = $secured;
-	}
-
-
-
 	public function register(IRouter $router)
 	{
 		$router[] = new Route(
@@ -30,7 +18,7 @@ class ModulesRouteProvider implements IRouteProvider
 				"cmsmodule" => "homepage",
 				"action" => "default",
 				"id" => NULL,
-			], $this->secured ? Route::SECURED : 0
+			]
 		);
 	}
 
