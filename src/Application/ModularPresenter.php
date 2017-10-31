@@ -2,12 +2,12 @@
 
 namespace Annotate\Modules\Application;
 
-
 use Annotate\Framework\Application\BasePresenter;
 use Annotate\Framework\Application\Components\Container;
 use Annotate\Framework\Utils\Strings;
 use Annotate\Modules\Exceptions\ModuleNotFoundException;
 use Annotate\Modules\IModule;
+use InvalidArgumentException;
 use Nette;
 use Nette\Application;
 use Nette\Application\BadRequestException;
@@ -52,7 +52,6 @@ class ModularPresenter extends BasePresenter
 		} catch (ModuleNotFoundException $e) {
 			throw new BadRequestException("Module '$moduleName' not found", 404, $e);
 		}
-
 	}
 
 
@@ -89,7 +88,7 @@ class ModularPresenter extends BasePresenter
 		} elseif ($this->getContainer()->getComponent($name, FALSE)) {
 			$component = $this->getContainer()->getComponent($name);
 		} else {
-			throw new \InvalidArgumentException("No factory method for component '$name' found");
+			throw new InvalidArgumentException("No factory method for component '$name' found");
 		}
 		if (!$component instanceof IComponent && !isset($this->components[$name])) {
 			$class = get_class($this);

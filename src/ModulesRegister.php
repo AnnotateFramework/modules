@@ -10,6 +10,7 @@ use Nette\DI\Container;
 use Nette\DI\MissingServiceException;
 use Nette\Object;
 use Nette\Reflection\ClassType;
+use UnexpectedValueException;
 
 
 class ModulesRegister extends Object implements Subscriber
@@ -39,7 +40,7 @@ class ModulesRegister extends Object implements Subscriber
 
 
 	/**
-	 * @param $name
+	 * @param  string
 	 *
 	 * @return \Annotate\Modules\IModule
 	 */
@@ -59,13 +60,13 @@ class ModulesRegister extends Object implements Subscriber
 
 		if (!$module) {
 			$factoryClass = get_class($factory);
-			throw new \UnexpectedValueException(
+			throw new UnexpectedValueException(
 				"Method '$factoryClass:createModule' does not return or create desired module '$name'"
 			);
 		}
 		if (!($module instanceof IModule)) {
 			$moduleClass = get_class($module);
-			throw new \UnexpectedValueException("'$moduleClass' is not instance of Annotate\\Modules\\IModule");
+			throw new UnexpectedValueException("'$moduleClass' is not instance of Annotate\\Modules\\IModule");
 		}
 		$this->module = $module;
 		$this->activeModuleName = $name;
@@ -76,7 +77,7 @@ class ModulesRegister extends Object implements Subscriber
 
 
 	/**
-	 * @param  $name
+	 * @param  string
 	 * @throws Exceptions\ModuleNotFoundException
 	 * @return IModuleFactory
 	 */
@@ -91,7 +92,7 @@ class ModulesRegister extends Object implements Subscriber
 
 
 	/**
-	 * @param  $name
+	 * @param  string
 	 * @return ModuleDefinition
 	 */
 	private function getModuleDefinition($name)
@@ -130,7 +131,6 @@ class ModulesRegister extends Object implements Subscriber
 		}
 
 		return $reflection->newInstanceArgs($constructorParameters);
-
 	}
 
 
@@ -178,7 +178,7 @@ class ModulesRegister extends Object implements Subscriber
 
 
 	/**
-	 * @return  ModuleDefinition[]
+	 * @return ModuleDefinition[]
 	 */
 	public function getDefinitions()
 	{
@@ -196,7 +196,7 @@ class ModulesRegister extends Object implements Subscriber
 
 
 	/**
-	 * @return  string
+	 * @return string
 	 */
 	public function getActiveModuleName()
 	{

@@ -2,6 +2,7 @@
 
 namespace Annotate\Modules;
 
+
 abstract class ModuleFactory implements IModuleFactory
 {
 
@@ -16,4 +17,5 @@ abstract class ModuleFactory implements IModuleFactory
 	{
 		$this->modulesRegister = $modulesRegister;
 	}
+
 }

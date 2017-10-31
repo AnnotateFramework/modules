@@ -2,7 +2,6 @@
 
 namespace Annotate\Modules\Exceptions;
 
-
 use Exception;
 
 

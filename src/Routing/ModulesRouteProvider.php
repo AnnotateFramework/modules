@@ -13,7 +13,8 @@ class ModulesRouteProvider implements IRouteProvider
 	public function register(IRouter $router)
 	{
 		$router[] = new Route(
-			"<cmsmodule>[/<action>][/<id [0-9]+>]", [
+			"<cmsmodule>[/<action>][/<id [0-9]+>]",
+            [
 				"presenter" => "Frontend",
 				"cmsmodule" => "homepage",
 				"action" => "default",

@@ -21,8 +21,14 @@ class ModuleDefinition extends Object
 	private $extra = [];
 
 
-
-	function __construct($class, $url, $icon = NULL, $type = NULL, $extra = [])
+    /**
+     * @param  string
+     * @param  string
+     * @param  string|NULL
+     * @param  string|NULL
+     * @param  array
+     */
+    public function __construct($class, $url, $icon = NULL, $type = NULL, $extra = [])
 	{
 		$this->class = $class;
 		$this->url = $url;

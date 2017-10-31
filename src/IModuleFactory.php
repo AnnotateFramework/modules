@@ -2,6 +2,7 @@
 
 namespace Annotate\Modules;
 
+
 interface IModuleFactory
 {
 

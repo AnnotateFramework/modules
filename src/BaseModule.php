@@ -39,7 +39,6 @@ abstract class BaseModule extends Object implements IModule
 		}
 
 		$this->runBuildMethod($this->reflection->getMethod($buildMethod));
-
 	}
 
 

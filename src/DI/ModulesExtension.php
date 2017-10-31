@@ -31,7 +31,6 @@ class ModulesExtension extends CompilerExtension
 
 		$builder->addDefinition($this->prefix('moduleLinksExtractor'))
 			->setClass(ModuleLinksExtractor::class);
-
 	}
 
 
